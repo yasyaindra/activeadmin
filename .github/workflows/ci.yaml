@@ -31,7 +31,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: 3.0.0
           bundler: none
 
       - name: Install a specific rubygems version
@@ -47,7 +47,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.BUNDLE_PATH }}
-          key: gems-2.7.2-rails_61-${{ hashFiles('current_gemfile.lock') }}
+          key: gems-3.0.0-rails_61-${{ hashFiles('current_gemfile.lock') }}
 
       - name: Install dependencies
         run: bundle install --jobs 3
@@ -86,7 +86,7 @@ jobs:
       fail-fast: false
 
       matrix:
-        ruby: [2.7.2, 2.6.6]
+        ruby: [3.0.0, 2.7.2, 2.6.6]
 
         deps: ["rails_52", "rails_60", "rails_61", "rails_61_turbolinks", "rails_61_webpacker"]
 
